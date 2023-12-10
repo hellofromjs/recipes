@@ -1,0 +1,77 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+
+.footer {
+	margin-top: 100px;
+	margin-bottom: 100px;
+
+	&__right {
+		width: 100%;
+		max-width: 460px;
+	}
+
+	&__signup {
+		border-bottom: 1px solid #7F7D7D;
+		align-items: end;
+		padding-bottom: 10px;
+		justify-content: space-between;
+		margin-top: 50px;
+	}
+
+	&__email {
+		border: none;
+
+		&::placeholder {
+			color: #7F7D7D;
+			font-size: 20px;
+			font-weight: 500;
+		}
+	}
+
+	&__row {
+		justify-content: space-between;
+		gap: 30px;
+
+		@include media-breakpoint-down(md) {
+			flex-flow: column;
+		}
+	}
+
+	&__links {
+		gap: 100px;
+
+		@include media-breakpoint-down(md) {
+			gap: 30px;
+			flex-flow: column;
+		}
+
+		h3 {
+			font-size: 24px;
+			font-weight: 600;
+			margin-bottom: 30px;
+		}
+
+		ul {
+			padding: 0;
+			margin: 0;
+			display: flex;
+			flex-flow: column;
+			list-style: none;
+			gap: 5px;
+
+			li {
+				font-size: 16px;
+				font-weight: 500;
+
+				a {
+					text-decoration: none;
+					color: black;
+				}
+			}
+		}
+	}
+
+	.logo {
+		margin-bottom: 50px;
+	}
+}

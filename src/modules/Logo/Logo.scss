@@ -1,0 +1,16 @@
+@import '../../scss/variables';
+
+.logo {
+	display: flex;
+	align-items: center;
+
+	img {
+		margin-right: 5px;
+	}
+
+	&__text {
+		font-size: 22px;
+		color: $brandSecondary;
+		font-weight: bold;
+	}
+}
