@@ -1,27 +1,28 @@
 import Button from "../Button/Button";
-import './Recipes.scss'
+import "./Recipes.scss";
 import RecipeCard from "../RecipeCard/RecipeCard";
 
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-export default function Recipes({}) {
-	let { id } = useParams()
+export default function Recipes() {
+	let { id } = useParams();
 
-	const [recipes, setRecipes] = useState([])
+	const [recipes, setRecipes] = useState([]);
 
 	useEffect(() => {
-		if (id == null) id = 'Seafood'
+		if (id == null) id = "Seafood";
 
 		async function fetchAPI() {
-			let response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c='+id)
-			response = await response.json()
-			console.log(response)
-			setRecipes(response.meals)
+			let response = await fetch(
+				"https://www.themealdb.com/api/json/v1/1/filter.php?c=" + id
+			);
+			response = await response.json();
+			setRecipes(response.meals);
 		}
 
-		fetchAPI()
-	}, [id])
+		fetchAPI();
+	}, [id]);
 
 	return (
 		<section className="recipes container flex-column">
@@ -33,10 +34,13 @@ export default function Recipes({}) {
 				<Button className="button-medium">See All</Button>
 			</div>
 
-			<div className="recipes__list d-flex">
-				{recipes.slice(0, 6).map(recipe => <RecipeCard key={recipe.idMeal} recipe={recipe} />)}
-			</div>
+			{id && <h3 className="mb-4">Category: {id}</h3>}
 
+			<div className="recipes__list d-flex">
+				{recipes.slice(0, 6).map((recipe) => (
+					<RecipeCard key={recipe.idMeal} recipe={recipe} />
+				))}
+			</div>
 		</section>
-	)
+	);
 }

@@ -25,7 +25,7 @@ export default function Header() {
 			<Logo />
 			<ul className="list-reset gap-5 d-none d-md-flex">
 				<li>
-					<a href="/#">Home</a>
+					<Link to="/">Home</Link>
 				</li>
 				<li className="nav-item dropdown">
 					<a className="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
