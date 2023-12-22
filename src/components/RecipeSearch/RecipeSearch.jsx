@@ -27,7 +27,7 @@ export default function RecipeSearch() {
 	}
 
 	return (
-		<div className="container">
+		<div className="container my-3">
 			<div className="row mb-4 mx-auto">
 				{isAlerted && (
 					<div className="alert alert-danger" role="alert">
