@@ -3,8 +3,23 @@ import "./Header.scss";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa";
 import Logo from "../Logo/Logo";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
+
+	const [categories, setCategories] = useState([])
+
+	useEffect(() => {
+		async function fetchAPI() {
+			let response = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
+			response = await response.json()
+			setCategories(response.categories)
+		}
+
+		fetchAPI()
+	}, [])
+
 	return (
 		<header className="container d-flex justify-content-between header">
 			<Logo />
@@ -12,8 +27,13 @@ export default function Header() {
 				<li>
 					<a href="/#">Home</a>
 				</li>
-				<li>
-					<a href="/#">Recipe</a>
+				<li className="nav-item dropdown">
+					<a className="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Categories
+					</a>
+					<ul className="dropdown-menu">
+						{categories.map(category => <li key={category.idCategory}><Link className="dropdown-item" to={`/category/${category.strCategory}`}>{category.strCategory}</Link></li>)}
+					</ul>
 				</li>
 				<li>
 					<a href="/#">Community</a>
