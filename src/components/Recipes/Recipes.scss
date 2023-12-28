@@ -12,9 +12,11 @@
 	}
 
 	&__list {
-		flex-wrap: wrap;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
 		gap: 57px;
-		justify-content: center;
+		place-items: center;
+		align-items: stretch;
 	}
 
 	h3 {

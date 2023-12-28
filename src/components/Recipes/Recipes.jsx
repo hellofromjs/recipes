@@ -36,7 +36,7 @@ export default function Recipes() {
 
 			{id && <h3 className="mb-4">Category: {id}</h3>}
 
-			<div className="recipes__list d-flex">
+			<div className="recipes__list">
 				{recipes.slice(0, 6).map((recipe) => (
 					<RecipeCard key={recipe.idMeal} recipe={recipe} />
 				))}
