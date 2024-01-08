@@ -1,12 +1,15 @@
 @import '../../scss/variables';
 
+@import "~bootstrap/scss/bootstrap";
+
 .header {
 	padding-top: 30px;
 	padding-bottom: 30px;
 
 	ul {
 		font-size: 20px;
-		align-items: center;
+		gap: 20px;
+		align-items: start;
 
 		li.dropdown-toggle {
 			padding: 0;
@@ -18,5 +21,20 @@
 		color: black;
 		font-weight: 500;
 		font-size: 20px;
+	}
+
+	#navbarSupportedContent {
+		justify-content: center;
+	}
+
+	.btn.dropdown-toggle {
+		padding: 0;
+	}
+
+	@include media-breakpoint-up(lg) {
+		ul {
+			align-items: center;
+			gap: 40px;
+		}
 	}
 }

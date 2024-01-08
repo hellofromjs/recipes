@@ -21,31 +21,40 @@ export default function Header() {
 	}, [])
 
 	return (
-		<header className="container d-flex justify-content-between header">
-			<Logo />
-			<ul className="list-reset gap-5 d-none d-md-flex">
-				<li>
-					<Link to="/">Home</Link>
-				</li>
-				<li className="nav-item dropdown">
-					<a className="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Categories
-					</a>
-					<ul className="dropdown-menu">
-						{categories.map(category => <li key={category.idCategory}><Link className="dropdown-item" to={`/category/${category.strCategory}`}>{category.strCategory}</Link></li>)}
+		<nav>
+			<header className="navbar navbar-expand-lg container d-flex justify-content-between header mt-3">
+				<Logo />
+				<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span className="navbar-toggler-icon"></span>
+				</button>
+				<div className="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul className="navbar-nav list-reset d-md-flex">
+						<li className="nav-item">
+							<Link to="/">Home</Link>
+						</li>
+						<li className="nav-item dropdown">
+							<a className="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Categories
+							</a>
+							<ul className="dropdown-menu">
+								{categories.map(category => <li key={category.idCategory}><Link className="dropdown-item" to={`/category/${category.strCategory}`}>{category.strCategory}</Link></li>)}
+							</ul>
+						</li>
+						<li className="nav-item">
+							<a href="/#">Community</a>
+						</li>
+						<li className="nav-item">
+							<a href="/#">About Us</a>
+						</li>
+						<li className="nav-item">
+							<div className="d-flex gap-3">
+								<FaMagnifyingGlass />
+								<FaUser />
+							</div>
+						</li>
 					</ul>
-				</li>
-				<li>
-					<a href="/#">Community</a>
-				</li>
-				<li>
-					<a href="/#">About Us</a>
-				</li>
-			</ul>
-			<div className="d-flex gap-3">
-				<FaMagnifyingGlass />
-				<FaUser />
-			</div>
-		</header>
+				</div>
+			</header>
+		</nav>
 	);
 }
